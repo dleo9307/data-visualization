@@ -1,0 +1,4 @@
+{
+    "orderedMerchandiseTop5": "select  koProxyShopTitle as name, count(*) as y from proxy.orderedMerchandise where status !='UNPAID' group by merchandiseId order by y desc limit 5;",
+    "refundedMerchandiseTop5": "select * from ((select  koProxyShopTitle as name, count(*) as y from proxy.orderedMerchandise where status ='CANCELED' group by merchandiseId order by y desc) as refundedMerchandise) group by name order by y desc limit 5;"
+}
