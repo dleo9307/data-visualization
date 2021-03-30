@@ -1,3 +1,5 @@
+const { format } = require("node:path");
+
 // Build the chart
 async function getPieChart(elementId, title, data) {
     return Highcharts.chart(elementId, {
@@ -15,7 +17,7 @@ async function getPieChart(elementId, title, data) {
         },
         accessibility: {
             point: {
-                valueSuffix: '개'
+                valueSuffix: '%'
             }
         },
         plotOptions: {
@@ -23,7 +25,8 @@ async function getPieChart(elementId, title, data) {
                 allowPointSelect: true,
                 cursor: 'pointer',
                 dataLabels: {
-                    enabled: true
+                    enabled: true,
+                    // format: '<b>{point.name}</b>: {point.y} 건'
                 },
                 showInLegend: true
             }
