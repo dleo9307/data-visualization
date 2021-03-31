@@ -1,4 +1,4 @@
-const { format } = require("node:path");
+
 
 // Build the chart
 async function getPieChart(elementId, title, data) {
