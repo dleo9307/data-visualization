@@ -1,6 +1,3 @@
-
-
-// Build the chart
 async function getPieChart(elementId, title, data) {
     return Highcharts.chart(elementId, {
         chart: {
@@ -14,11 +11,6 @@ async function getPieChart(elementId, title, data) {
         },
         tooltip: {
             pointFormat: '{series.name}: <b>{point.y}건</b>'
-        },
-        accessibility: {
-            point: {
-                valueSuffix: '%'
-            }
         },
         plotOptions: {
             pie: {

@@ -1,0 +1,3 @@
+{
+  "salesStock": "SELECT unix_timestamp(date(paidDate)) * 1000 as time, sum(paymentAmount) as value FROM proxy.`order` where status not in  ('UNPAID', 'CANCELED') group by time order by time asc;"
+}

@@ -123,7 +123,7 @@ var multipleLinesMixin = {
             options: {
                 gapSize: mainLineOptions.gapSize
             }
-        }, 
+        },
         // additional lines point place holders:
         secondaryLines = [], secondaryLinesNames = indicator.getTranslatedLinesNames(pointValKey), point;
         // Generate points for additional lines:
@@ -152,7 +152,7 @@ var multipleLinesMixin = {
                     error('Error: "There is no ' + lineName +
                         ' in DOCS options declared. Check if linesApiNames' +
                         ' are consistent with your DOCS line names."' +
-                        ' at mixin/multiple-line.js:34');
+                        ' at mixin/multiple-stock.js:34');
                 }
                 indicator.graph = indicator['graph' + lineName];
                 SMA.prototype.drawGraph.call(indicator);
