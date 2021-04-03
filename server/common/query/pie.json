@@ -1,4 +1,4 @@
 {
-    "orderedMerchandiseTop5": "select  koProxyShopTitle as name, count(*) as y from proxy.orderedMerchandise where status !='UNPAID' group by merchandiseId order by y desc limit 5;",
-    "refundedMerchandiseTop5": "select * from ((select  koProxyShopTitle as name, count(*) as y from proxy.orderedMerchandise where status ='CANCELED' group by merchandiseId order by y desc) as refundedMerchandise) group by name order by y desc limit 5;"
+    "orderedMerchandiseTop10": "SELECT koName AS name,COUNT(*)AS y FROM proxy.orderedMerchandise inner join proxy.merchandise on orderedMerchandise.merchandiseId=merchandise.id WHERE status not in('UNPAID','CANCELED')GROUP BY koName ORDER BY y DESC LIMIT 10;",
+    "refundedMerchandiseTop10": "SELECT koName AS name,COUNT(*)AS y FROM proxy.orderedMerchandise inner join proxy.merchandise on orderedMerchandise.merchandiseId=merchandise.id WHERE status='CANCELED'GROUP BY koName ORDER BY y DESC LIMIT 10;"
 }
