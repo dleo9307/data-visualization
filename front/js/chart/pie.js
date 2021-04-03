@@ -1,4 +1,4 @@
-async function getPieChart(elementId, title, data) {
+function getPieChart(elementId, title, series) {
     return Highcharts.chart(elementId, {
         chart: {
             plotBackgroundColor: null,
@@ -10,7 +10,7 @@ async function getPieChart(elementId, title, data) {
             text: title
         },
         tooltip: {
-            pointFormat: '{series.name}: <b>{point.y}건</b>'
+            pointFormat: '{series.name}: <b>{point.y}</b>'
         },
         plotOptions: {
             pie: {
@@ -18,15 +18,10 @@ async function getPieChart(elementId, title, data) {
                 cursor: 'pointer',
                 dataLabels: {
                     enabled: true,
-                    // format: '<b>{point.name}</b>: {point.y} 건'
                 },
                 showInLegend: true
             }
         },
-        series: [{
-            name: '건수',
-            colorByPoint: true,
-            data
-        }]
+        series
     });
 }

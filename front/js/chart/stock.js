@@ -1,4 +1,4 @@
-async function getStockChart(elementId, title, series) {
+function getStockChart(elementId, title, series) {
     return Highcharts.stockChart(elementId, {
         rangeSelector: {
             selected: 1
