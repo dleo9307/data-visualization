@@ -1,6 +1,5 @@
 function getSankeyChart(elementId, title, series) {
     Highcharts.chart(elementId, {
-
         title: {
             text: title
         },

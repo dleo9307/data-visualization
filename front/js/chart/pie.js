@@ -4,7 +4,11 @@ function getPieChart(elementId, title, series) {
             plotBackgroundColor: null,
             plotBorderWidth: null,
             plotShadow: false,
-            type: 'pie'
+            type: 'pie',
+            options3d: {
+                enabled: true,
+                alpha: 45
+            }
         },
         title: {
             text: title
@@ -19,7 +23,9 @@ function getPieChart(elementId, title, series) {
                 dataLabels: {
                     enabled: true,
                 },
-                showInLegend: true
+                showInLegend: true,
+                innerSize: 100,
+                depth: 45
             }
         },
         series

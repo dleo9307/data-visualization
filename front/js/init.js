@@ -4,6 +4,7 @@ async function init() {
     await getOrderedMerchandiseTop5PieChart();
     await getRefundedMerchandiseTop5PieChart();
     await getSalesStockChart();
+    await getPriceLinkedOrderedMerchandiseTop5();
 }
 
 async function getOrderedMerchandiseTop5PieChart() {
@@ -47,12 +48,14 @@ async function getSalesStockChart() {
 
 async function getPriceLinkedOrderedMerchandiseTop5() {
     const data = await getData('/sankey/price_linked_ordered_merchandise_top5');
-    const series = {
+    const series = [{
         keys: ['from', 'to', 'weight'],
+        minLinkWidth: 5,
+        nodeWidth: 300,
         data,
         type: 'sankey',
         name: '가격대별 주문된 상품'
-    };
+    }];
     getSankeyChart('price_sankey', '가격대별 주문된 상품 TOP5', series);
 }
 
