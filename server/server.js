@@ -9,6 +9,6 @@ app.use(cors());
 app.use(router);
 
 
-app.listen(PORT, (err, res) => {
+app.listen(PORT, () => {
     console.info(`Server Start PORT : ${PORT}`);
 })
