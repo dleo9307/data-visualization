@@ -62,7 +62,6 @@ async function getPriceLinkedOrderedMerchandiseTop10() {
 
 async function getTimeRelatedOrder() {
     const data = await getData('/pie/time_related_order');
-    console.log(data);
     const series = [{
         name: '건수',
         colorByPoint: true,
