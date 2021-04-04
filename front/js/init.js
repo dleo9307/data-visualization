@@ -5,6 +5,7 @@ async function init() {
     await getRefundedMerchandiseTop10PieChart();
     await getSalesStockChart();
     await getPriceLinkedOrderedMerchandiseTop10();
+    await getTimeRelatedOrder();
 }
 
 async function getOrderedMerchandiseTop10PieChart() {
@@ -57,6 +58,17 @@ async function getPriceLinkedOrderedMerchandiseTop10() {
         name: '가격대별 주문된 상품'
     }];
     getSankeyChart('price_sankey', '가격대별 주문된 상품 TOP5', series);
+}
+
+async function getTimeRelatedOrder() {
+    const data = await getData('/pie/time_related_order');
+    console.log(data);
+    const series = [{
+        name: '건수',
+        colorByPoint: true,
+        data
+    }]
+    getBarChart('time_related_order', '시간대별 주문내역', series);
 }
 
 async function getData(url) {

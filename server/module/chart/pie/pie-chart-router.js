@@ -10,4 +10,8 @@ router.get('/refunded_merchandise_top10', async (req, res) => {
     return res.json(await pieChartService.getRefundedMerchandiseTop10());
 })
 
+router.get('/time_related_order', async (req, res) => {
+    return res.json(await pieChartService.getTimeRelatedOrder());
+})
+
 module.exports = router;
