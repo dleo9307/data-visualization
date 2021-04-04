@@ -1,0 +1,3 @@
+{
+  "revenueTop10": "SELECT merchandise.id,merchandise.code,merchandise.koName,proxyShopHasMerchandise.salePrice,TRUNCATE(AVG(incomingMerchandise.unitPrice),0)as unitPriceAvg,TRUNCATE(proxyShopHasMerchandise.salePrice-AVG(incomingMerchandise.unitPrice),0)AS salesMarginAvg FROM proxy.proxyShopHasMerchandise INNER JOIN proxy.merchandise ON proxyShopHasMerchandise.merchandiseId=merchandise.id LEFT JOIN proxy.incomingMerchandise ON merchandise.id=incomingMerchandise.merchandiseId AND incomingMerchandise.status!='CANCELED'and incomingMerchandise.type='PURCHASE'WHERE incomingMerchandise.id IS NOT NULL GROUP BY merchandise.id ORDER BY salesMarginAvg DESC LIMIT 10;"
+}

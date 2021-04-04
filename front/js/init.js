@@ -6,6 +6,7 @@ async function init() {
     await getSalesStockChart();
     await getPriceLinkedOrderedMerchandiseTop10();
     await getTimeRelatedOrder();
+    await getRevenue();
 }
 
 async function getOrderedMerchandiseTop10PieChart() {
@@ -68,6 +69,13 @@ async function getTimeRelatedOrder() {
         data
     }]
     getBarChart('time_related_order', '시간대별 주문내역', series);
+}
+
+async function getRevenue() {
+    const rows = await getData('/table/revenue_top10');
+    const headers = ['상품아이디', '상품코드', '상품명', '판매가', '평균 구매 단가', '판매 마진'];
+    const data = {rows, headers}
+    getTable('revenue_top10', data);
 }
 
 async function getData(url) {
